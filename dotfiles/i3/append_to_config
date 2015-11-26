@@ -1,0 +1,41 @@
+###################
+# https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+###################
+# https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
+
+## https://github.com/tunnelshade/awesome-dots/blob/master/.i3/config
+# Startup programs
+
+exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
+
+exec --no-startup-id nm-applet
+exec --no-startup-id dropbox start
+exec --no-startup-id gnome-control-center sound
+
+
+#exec --no-startup-id feh --bg-fill ~/Pictures/AC.jpg
+
+# Custom KeyBinds
+# bindsym Control+mod1+l exec sh ~/.i3/i3lock.sh
+# https://ondrejsika.com/blog/2014/04/21/screenshot-in-i3wm-with-scrot.html
+bindsym Print exec scrot
+bindsym $mod+Print exec scrot -s
+bindsym $mod+c exec google-chrome
